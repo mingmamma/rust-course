@@ -1,0 +1,97 @@
+[package]
+name = "rust-course"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "body"
+path = "src/body.rs" 
+
+[[bin]] 
+name = "car"
+path = "src/car.rs"
+
+[[bin]] 
+name = "full_name"
+path = "src/full_name.rs"
+
+[[bin]] 
+name = "copy_and_return"
+path = "src/copy_and_return.rs"
+
+[[bin]] 
+name = "borrowing"
+path = "src/borrowing.rs"
+
+[[bin]] 
+name = "read_files"
+path = "src/read_files.rs"
+
+[[bin]] 
+name = "file_size"
+path = "src/file_size.rs"
+
+[[bin]] 
+name = "container"
+path = "src/container.rs"
+
+[[bin]] 
+name = "trait_bounds"
+path = "src/trait_bounds.rs"
+
+[[bin]] 
+name = "iterator"
+path = "src/iterator.rs"
+
+[[bin]] 
+name = "group_iterator"
+path = "src/group_iterator.rs"
+
+[[bin]] 
+name = "person"
+path = "src/person.rs"
+
+[[bin]] 
+name = "user"
+path = "src/user.rs"
+
+[[bin]] 
+name = "module_visibility"
+path = "src/module_visibility.rs"
+
+[[bin]] 
+name = "modules"
+path = "src/modules.rs"
+
+[[bin]] 
+name = "unit_tests"
+path = "src/unit_tests.rs"
+
+[[bin]] 
+name = "result_type"
+path = "src/result_type.rs"
+
+[[bin]]
+name = "string"
+path = "src/string.rs"
+
+[[bin]]
+name = "vector"
+path = "src/vector.rs"
+
+[[bin]]
+name = "enum"
+path = "src/enum.rs"
+
+[[bin]]
+name = "vector_elements"
+path = "src/vector_elements.rs"
+
+[[bin]]
+name = "shape"
+path = "src/shape.rs"
+
