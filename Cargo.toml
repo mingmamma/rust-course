@@ -68,10 +68,6 @@ name = "modules"
 path = "src/modules.rs"
 
 [[bin]] 
-name = "unit_tests"
-path = "src/unit_tests.rs"
-
-[[bin]] 
 name = "result_type"
 path = "src/result_type.rs"
 
@@ -95,3 +91,46 @@ path = "src/vector_elements.rs"
 name = "shape"
 path = "src/shape.rs"
 
+[[bin]]
+name = "string_slice"
+path = "src/string_slice.rs"
+
+[[bin]]
+name = "word_count"
+path = "src/word_count.rs"
+
+[[bin]]
+name = "hashmaps"
+path = "src/hashmaps.rs"
+
+[[bin]]
+name = "threads"
+path = "src/threads.rs"
+
+[[bin]]
+name = "messaging"
+path = "src/messaging.rs"
+
+[[bin]]
+name = "messaging2"
+path = "src/messaging2.rs"
+
+[[bin]]
+name = "messaging3"
+path = "src/messaging3.rs"
+
+[[bin]]
+name = "dining_philosophers"
+path = "src/dining_philosophers.rs"
+
+[[bin]]
+name = "rc_count"
+path = "src/rc_count.rs"
+
+[[bin]]
+name = "arc"
+path = "src/arc.rs"
+
+[[bin]]
+name = "threads3"
+path = "src/threads3.rs"

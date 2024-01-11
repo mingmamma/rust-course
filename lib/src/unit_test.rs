@@ -16,7 +16,3 @@ mod tests {
         assert!(!is_even(1));
     }
 }
-
-fn main() {
-    println!("Dummy Main function")
-}
