@@ -4,6 +4,7 @@
 use std::{error, fmt};
 
 // aliasing to shorter type
+// type alias c.f. https://doc.rust-lang.org/book/ch19-04-advanced-types.html#creating-type-synonyms-with-type-aliases
 type ResultA<T> = std::result::Result<T, Box<dyn error::Error>>;
 
 fn print_result(result: ResultA<u32>) -> ()  {
