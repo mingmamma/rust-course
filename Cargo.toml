@@ -8,6 +8,10 @@ edition = "2021"
 [dependencies]
 
 [[bin]]
+name = "a"
+path = "src/a.rs"
+
+[[bin]]
 name = "body"
 path = "src/body.rs" 
 
