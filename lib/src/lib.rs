@@ -4,3 +4,6 @@ mod iterators_2;
 mod iterators_3;
 mod closure;
 mod avg_collection;
+mod my_box;
+mod declarative_macro_1;
+mod declarative_macro_2;
