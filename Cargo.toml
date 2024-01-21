@@ -138,3 +138,7 @@ path = "src/arc.rs"
 [[bin]]
 name = "threads3"
 path = "src/threads3.rs"
+
+[[bin]]
+name = "curry"
+path = "src/curry.rs"
