@@ -142,3 +142,7 @@ path = "src/threads3.rs"
 [[bin]]
 name = "curry"
 path = "src/curry.rs"
+
+[[bin]]
+name = "as_ref"
+path = "src/as_ref.rs"
