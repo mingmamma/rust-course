@@ -1,4 +1,5 @@
 #[derive(Debug)]
+#[allow(dead_code)]
 struct User {
     username: String,
     email: String,
@@ -17,9 +18,11 @@ impl User {
             active: true,
         }
     }
+
     fn deactivate(&mut self) {
         self.active = false;
     }
+    
     fn from_email(email: String, uri: String) -> Self {
         let username = String::from(email.split_once('@').unwrap().0);
         Self::new(username, email, uri)
