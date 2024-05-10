@@ -103,9 +103,9 @@ path = "src/string_slice.rs"
 name = "word_count"
 path = "src/word_count.rs"
 
-[[bin]]
-name = "hashmaps"
-path = "src/hashmaps.rs"
+# [[bin]]
+# name = "hashmaps"
+# path = "src/hashmaps.rs"
 
 [[bin]]
 name = "threads"
@@ -146,3 +146,7 @@ path = "src/curry.rs"
 [[bin]]
 name = "as_ref"
 path = "src/as_ref.rs"
+
+[[bin]]
+name = "declarative_macro_fib"
+path = "src/declarative_macro_fib.rs"
