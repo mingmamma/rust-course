@@ -10,10 +10,10 @@ struct Inventory {
 
 impl Inventory {
     fn return_preference(&self, user_preference: Option<ShirtColor>) -> ShirtColor {
-        user_preference.unwrap_or_else(|| self.most_stocked())
+        user_preference.unwrap_or_else(|| self.get_most_stocked_shirt_color())
     }
 
-    fn most_stocked(&self) -> ShirtColor {
+    fn get_most_stocked_shirt_color(&self) -> ShirtColor {
         let mut num_red = 0;
         let mut num_blue = 0;
 
@@ -35,25 +35,24 @@ impl Inventory {
 mod tests {
     use super::*;
 
-    fn get_store() -> Inventory {
-        Inventory { shirts: vec![ShirtColor::Blue, ShirtColor::Red, ShirtColor::Blue], }
+    fn set_up_blue_majority_store() -> Inventory {
+        Inventory {
+            shirts: vec![ShirtColor::Blue, ShirtColor::Red, ShirtColor::Blue],
+        }
     }
 
     #[test]
-    fn test_specified_preference() {
-
+    fn test_specified_red_shirt_preference() {
+        let test_store: Inventory = set_up_blue_majority_store();
         assert_eq!(
-            get_store().return_preference(Some(ShirtColor::Red)),
+            test_store.return_preference(Some(ShirtColor::Red)),
             ShirtColor::Red
-        )
+        );
     }
-    
+
     #[test]
     fn test_no_preference() {
-
-        assert_eq!(
-            get_store().return_preference(None),
-            ShirtColor::Blue
-        )
+        let test_store: Inventory = set_up_blue_majority_store();
+        assert_eq!(test_store.return_preference(None), ShirtColor::Blue);
     }
 }
