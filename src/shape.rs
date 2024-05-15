@@ -1,7 +1,7 @@
 enum Shape {
     Circle(f64),
     Square(f64),
-    Triangle(f64, f64, f64)
+    Triangle(f64, f64, f64),
 }
 
 impl Shape {
@@ -9,16 +9,19 @@ impl Shape {
         match &self {
             Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
             Shape::Square(length) => length * length,
-            Shape::Triangle(a, b, c) => ((a+b+c)/2.0*((a+b+c)/2.0-a)*((a+b+c)/2.0-b)*((a+b+c)/2.0-c)).sqrt()
+            Shape::Triangle(a, b, c) => ((a + b + c) / 2.0
+                * ((a + b + c) / 2.0 - a)
+                * ((a + b + c) / 2.0 - b)
+                * ((a + b + c) / 2.0 - c))
+                .sqrt(),
         }
     }
 }
 
 fn largest_shape(shape_vec: &Vec<Shape>) -> &Shape {
-   
     assert!(!shape_vec.is_empty());
-   
-    let mut max_area= 0.0;
+
+    let mut max_area = 0.0;
     let mut max_shape = &shape_vec[0];
 
     for shape in shape_vec {
@@ -31,14 +34,22 @@ fn largest_shape(shape_vec: &Vec<Shape>) -> &Shape {
 }
 
 fn main() {
-    let shapes = vec![Shape::Circle(5.0), Shape::Square(3.0), Shape::Triangle(2.0, 2.0, 2.0)];
+    let shapes = vec![
+        Shape::Circle(5.0),
+        Shape::Square(3.0),
+        Shape::Triangle(2.0, 2.0, 2.0),
+    ];
 
     let total_area: f64 = shapes
         .iter()
         .map(|shape| match shape {
             Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
             Shape::Square(length) => length * length,
-            Shape::Triangle(a, b, c) => ((a+b+c)/2.0*((a+b+c)/2.0-a)*((a+b+c)/2.0-b)*((a+b+c)/2.0-c)).sqrt()
+            Shape::Triangle(a, b, c) => ((a + b + c) / 2.0
+                * ((a + b + c) / 2.0 - a)
+                * ((a + b + c) / 2.0 - b)
+                * ((a + b + c) / 2.0 - c))
+                .sqrt(),
         })
         .sum();
 

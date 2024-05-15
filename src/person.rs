@@ -1,4 +1,3 @@
-
 #[derive(Debug)]
 struct Person {
     first_name: String,
@@ -8,14 +7,14 @@ struct Person {
 
 impl Person {
     fn new(first_name: String, middle_name: Option<String>, last_name: String) -> Self {
-        Self { 
+        Self {
             first_name: first_name,
-            middle_name: middle_name, 
-            last_name: last_name, 
+            middle_name: middle_name,
+            last_name: last_name,
         }
     }
 
-    fn get_full_name(&self)-> String {
+    fn get_full_name(&self) -> String {
         format!("{} {}", &self.first_name, &self.last_name)
     }
 
@@ -23,12 +22,12 @@ impl Person {
         let mut full_name = String::new();
         full_name.push_str(&self.first_name);
         full_name.push_str(" ");
-    
+
         match &self.middle_name {
             Some(middle_name) => full_name.push_str(middle_name),
-            None => ()
+            None => (),
         }
-        
+
         full_name.push_str(" ");
         full_name.push_str(&self.last_name);
         full_name
@@ -36,10 +35,7 @@ impl Person {
 }
 
 fn main() {
-    let john = Person::new(  
-        "John".to_string(),
-        None,
-        "Doe".to_string()); 
+    let john = Person::new("John".to_string(), None, "Doe".to_string());
 
     println!("{:?}", &john);
 
@@ -50,9 +46,6 @@ fn main() {
         middle_name: Some(String::from("Oliver")),
         last_name: String::from("Smith"),
     };
-    
+
     assert_eq!(james.build_full_name(), "James Oliver Smith");
 }
-
-
-

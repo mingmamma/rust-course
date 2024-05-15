@@ -1,10 +1,10 @@
-fn add_both_ends<T: Clone>(vec:&mut Vec<T>, ele: T) {
+fn add_both_ends<T: Clone>(vec: &mut Vec<T>, ele: T) {
     let ele_clone = ele.clone();
     vec.push(ele);
     vec.insert(0, ele_clone);
 }
 
-fn extend_by_vec<T>(vec:&mut Vec<T>, vec2: Vec<T>) {
+fn extend_by_vec<T>(vec: &mut Vec<T>, vec2: Vec<T>) {
     vec.extend(vec2)
 }
 
@@ -25,12 +25,12 @@ fn main() {
 
     // insert items at a given index
     v.insert(0, 0);
-    println!("{:?}", v); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8] 
+    println!("{:?}", v); // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
     add_both_ends(&mut v, 10);
     println!("{:?}", v);
 
-    let even_more_numbers = vec![11,12];
+    let even_more_numbers = vec![11, 12];
     extend_by_vec(&mut v, even_more_numbers);
     println!("{:?}", v);
 }

@@ -1,18 +1,21 @@
-use std::{sync::{Mutex, Arc}, thread};
+use std::{
+    sync::{Arc, Mutex},
+    thread,
+};
 
-struct philosopher {
+struct Philosopher {
     name: String,
     left: usize,
-    right: usize
+    right: usize,
 }
 
 struct Forks {
     forks: Vec<Mutex<()>>,
 }
 
-impl philosopher {
-    fn new(name: &str, left: usize, right: usize) -> philosopher {
-        philosopher {
+impl Philosopher {
+    fn new(name: &str, left: usize, right: usize) -> Philosopher {
+        Philosopher {
             name: name.to_string(),
             left: left,
             right: right,
@@ -35,30 +38,35 @@ impl philosopher {
 
 fn main() {
     // set up the forks
-    let forks = Arc::new(Forks{forks:vec![
-        Mutex::new(()),
-        Mutex::new(()),
-        Mutex::new(()),
-        Mutex::new(()),
-        Mutex::new(()),]
+    let forks = Arc::new(Forks {
+        forks: vec![
+            Mutex::new(()),
+            Mutex::new(()),
+            Mutex::new(()),
+            Mutex::new(()),
+            Mutex::new(()),
+        ],
     });
 
     // set up the philosophers
     let philosophers = vec![
-        philosopher::new("Judith Butler", 0, 1),
-        philosopher::new("Gilles Deleuze", 1, 2),
-        philosopher::new("Karl Marx", 2, 3),
-        philosopher::new("Emma Goldman", 3, 4),
-        philosopher::new("Michel Foucault", 4, 0),
+        Philosopher::new("Judith Butler", 0, 1),
+        Philosopher::new("Gilles Deleuze", 1, 2),
+        Philosopher::new("Karl Marx", 2, 3),
+        Philosopher::new("Emma Goldman", 3, 4),
+        Philosopher::new("Michel Foucault", 4, 0),
     ];
 
-    let handles: Vec<_> = philosophers.into_iter().map(|p| {
-        // bump up the counter by cloning the forks
-        let forks = forks.clone();
-        thread::spawn(move || {
-            p.eat(&forks);
+    let handles: Vec<_> = philosophers
+        .into_iter()
+        .map(|p| {
+            // bump up the counter by cloning the forks
+            let forks = forks.clone();
+            thread::spawn(move || {
+                p.eat(&forks);
+            })
         })
-    }).collect();
+        .collect();
 
     for handle in handles {
         handle.join().unwrap();

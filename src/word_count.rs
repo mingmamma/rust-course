@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-fn main(){
+fn main() {
     let text = "hello world a wonderful world";
     let mut map = HashMap::new();
 

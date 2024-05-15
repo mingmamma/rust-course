@@ -2,7 +2,6 @@ mod avg_collection;
 // mod box_errors;
 mod closure;
 
-
 // mod iterators_2;
 // mod iterators_3;
 

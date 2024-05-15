@@ -10,25 +10,21 @@ fn main() {
 
     println!("Can still access sentence: {}", sentence);
     println!("{}", description);
-    
+
     // use + for string concat
     let description_2 = String::from("Title: Quick story\n") + &sentence;
     println!("{}", description_2);
 
-
     // iterate over the characters in the sentence
     let mut vowels_map: HashMap<char, usize> = HashMap::new();
     for c in sentence.chars() {
-
         match c {
-            'a' | 'e' | 'i' | 'o' | 'u' => 
-            *vowels_map.entry(c).or_insert(0) +=1,
+            'a' | 'e' | 'i' | 'o' | 'u' => *vowels_map.entry(c).or_insert(0) += 1,
             _ => continue,
         }
-        
+
         // alternative HashMap update approach (if type is no issue)
         // *vowels_map.entry(c).and_modify(|counter| *counter +=1).or_insert(1);
-    
     }
 
     for (vowel, vowel_count) in &vowels_map {
@@ -39,7 +35,7 @@ fn main() {
     //let words: Vec<&str> = sentence.split_whitespace().collect();
     let words = sentence.split(' ').collect::<Vec<&str>>();
     let longest_word = find_longest_word(&words);
-    
+
     println!("{:?}", words);
     println!("{:?}", longest_word);
 
@@ -47,7 +43,7 @@ fn main() {
     println!("{}", reversed);
 }
 
-fn find_longest_word(words:&Vec<&str>) -> String {
+fn find_longest_word(words: &Vec<&str>) -> String {
     let mut longest = 0;
     let mut longest_word = "";
     for word in words {
@@ -57,4 +53,4 @@ fn find_longest_word(words:&Vec<&str>) -> String {
         }
     }
     longest_word.to_string()
-} 
+}

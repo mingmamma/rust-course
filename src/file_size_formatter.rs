@@ -15,13 +15,11 @@ impl File {
             0..=999 => FileSize::Bytes(bytes),
             1000..=999_999 => FileSize::Kilobytes(bytes as f64 / 1_000.0),
             1_000_000..=999_999_999 => FileSize::Megabytes(bytes as f64 / 1_000_000.0),
-            _ => FileSize::Gigabytes(bytes as f64 / 1_000_000_000.0),            
+            _ => FileSize::Gigabytes(bytes as f64 / 1_000_000_000.0),
         };
-        
-        Self {
-            size: file_size
-        }
-    } 
+
+        Self { size: file_size }
+    }
 
     fn format_size(&self) -> String {
         match &self.size {
@@ -33,27 +31,22 @@ impl File {
     }
 }
 
-
 fn main() {
-    // let result = format_size(6888837399);
-    // println!("{}", result)
-
     let file_1 = File::new(1);
-    println!("{}",file_1.format_size());
+    println!("{}", file_1.format_size());
 
     let file_1 = File::new(1_000);
-    println!("{}",file_1.format_size());
+    println!("{}", file_1.format_size());
 
     let file_1 = File::new(6_888);
-    println!("{}",file_1.format_size());
+    println!("{}", file_1.format_size());
 
     let file_1 = File::new(1_000_000);
-    println!("{}",file_1.format_size());
+    println!("{}", file_1.format_size());
 
     let file_1 = File::new(1_000_000_000);
-    println!("{}",file_1.format_size());
+    println!("{}", file_1.format_size());
 
     let file_1 = File::new(6_888_837_399);
-    println!("{}",file_1.format_size());
-
+    println!("{}", file_1.format_size());
 }

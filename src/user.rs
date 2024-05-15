@@ -22,7 +22,7 @@ impl User {
     fn deactivate(&mut self) {
         self.active = false;
     }
-    
+
     fn from_email(email: String, uri: String) -> Self {
         let username = String::from(email.split_once('@').unwrap().0);
         Self::new(username, email, uri)
@@ -37,13 +37,20 @@ fn main() {
     );
 
     let user2 = User::from_email(
-        String::from("max@example.com"), 
-        String::from("https://max.com"));
+        String::from("max@example.com"),
+        String::from("https://max.com"),
+    );
 
     println!("Hello, {:?}!", new_user.username);
-    println!("Account {} status is: {}", new_user.username, new_user.active);
+    println!(
+        "Account {} status is: {}",
+        new_user.username, new_user.active
+    );
     new_user.deactivate();
-    println!("Account {} status is: {}", new_user.username, new_user.active);
+    println!(
+        "Account {} status is: {}",
+        new_user.username, new_user.active
+    );
 
     println!("{:?}", user2)
 }

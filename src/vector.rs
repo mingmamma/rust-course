@@ -43,5 +43,5 @@ fn main() {
     }
 
     // get the sum
-    println!("{}", get_sum(&vec2));    
+    println!("{}", get_sum(&vec2));
 }

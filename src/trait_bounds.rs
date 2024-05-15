@@ -48,9 +48,9 @@ struct Cat {
 impl AsJson for Cat {
     fn as_json(&self) -> String {
         format!(
-            r#"{{ "type": "cat", "name": "{}", "hasSharpClaws": {} }}"#, 
+            r#"{{ "type": "cat", "name": "{}", "hasSharpClaws": {} }}"#,
             self.name, self.sharp_claws
-        )       
+        )
     }
 }
 

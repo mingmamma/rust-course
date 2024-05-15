@@ -6,42 +6,17 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
-[[bin]]
-name = "a"
-path = "src/a.rs"
-
-[[bin]]
-name = "body"
-path = "src/body.rs" 
-
 [[bin]] 
-name = "car"
-path = "src/car.rs"
+name = "file_size_formatter"
+path = "src/file_size_formatter.rs"
 
 [[bin]] 
 name = "full_name"
 path = "src/full_name.rs"
 
 [[bin]] 
-name = "copy_and_return"
-path = "src/copy_and_return.rs"
-
-[[bin]] 
-name = "borrowing"
-path = "src/borrowing.rs"
-
-[[bin]] 
 name = "read_files"
 path = "src/read_files.rs"
-
-[[bin]] 
-name = "file_size"
-path = "src/file_size.rs"
-
-[[bin]] 
-name = "container"
-path = "src/container.rs"
 
 [[bin]] 
 name = "trait_bounds"
@@ -82,10 +57,6 @@ path = "src/string.rs"
 [[bin]]
 name = "vector"
 path = "src/vector.rs"
-
-[[bin]]
-name = "enum"
-path = "src/enum.rs"
 
 [[bin]]
 name = "vector_elements"
@@ -132,10 +103,6 @@ name = "rc_count"
 path = "src/rc_count.rs"
 
 [[bin]]
-name = "arc"
-path = "src/arc.rs"
-
-[[bin]]
 name = "threads3"
 path = "src/threads3.rs"
 
@@ -144,9 +111,5 @@ name = "curry"
 path = "src/curry.rs"
 
 [[bin]]
-name = "as_ref"
-path = "src/as_ref.rs"
-
-[[bin]]
-name = "declarative_macro_fib"
-path = "src/declarative_macro_fib.rs"
+name = "fib_macro"
+path = "src/fib_macro.rs"
