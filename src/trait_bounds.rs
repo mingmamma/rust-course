@@ -1,4 +1,5 @@
 #![allow(dead_code, unused_variables)]
+#![feature(error_iter)]
 
 trait AsJson {
     fn as_json(&self) -> String;
@@ -54,6 +55,39 @@ impl AsJson for Cat {
     }
 }
 
+use std::error::Error;
+use std::fmt;
+
+#[derive(Debug)]
+struct InnerError;
+
+#[derive(Debug)]
+struct ErrorWrap(Option<Box<dyn Error + 'static>>);
+// struct ErrorWrap(InnerError);
+
+impl fmt::Display for InnerError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "InnerError")
+    }
+}
+
+impl fmt::Display for ErrorWrap {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "ErrorWrap")
+    }
+}
+
+impl Error for InnerError {}
+
+impl Error for ErrorWrap {
+    fn source(&self) -> Option<&(dyn Error + 'static)> {
+        let as_ref = self.0.as_ref();
+        as_ref.map(|ref_boxed_err: &Box<dyn Error + 'static>| ref_boxed_err.as_ref())
+        // Some(&self.0)
+    }
+}
+
+
 fn main() {
     let laura = Person {
         name: String::from("Laura"),
@@ -75,4 +109,22 @@ fn main() {
     send_data_as_json(&laura);
     send_data_as_json(&fido);
     send_data_as_json(&kitty);
+
+    {
+    let test_err = ErrorWrap(Some(Box::new(InnerError)));
+    // let test_err = ErrorWrap(InnerError);
+
+    let ref_dyn_error : Box<dyn Error> = test_err.into(); // or
+    // let ref_dyn_error: &dyn Error = &test_err as &(dyn Error);
+
+    // explicitly casting to a value of &dyn Error, on which the sources is implemented for
+    // let ref_dyn_error: &dyn Error = &test_err; 
+    
+    let mut err_source_iter = ref_dyn_error.sources();
+
+    assert_eq!("B".to_string(), err_source_iter.next().unwrap().to_string());
+    assert_eq!("A".to_string(), err_source_iter.next().unwrap().to_string());
+    assert!(err_source_iter.next().is_none());
+    assert!(err_source_iter.next().is_none());
+    }
 }

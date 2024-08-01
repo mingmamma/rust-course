@@ -6,53 +6,68 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+async-stream = "0.3.5"
+futures = "0.3.30"
+futures-core = "0.3.30"
+futures-util = "0.3.30"
+once_cell = "1.19.0"
+serde_json = "1.0.117"
+stream-cancel = "0.8.2"
+tokio = { version = "1.38.0", features = ["full"] }
+tokio-stream = { version = "0.1.15", features = ["net"] }
+tokio-util = { version = "0.7.11", features = ["rt"] }
+
+[[bin]]
+name = "async_stream_map"
+path = "src/async_stream_map.rs"
+
+[[bin]]
+name = "async_stream_transformation"
+path = "src/async_stream_transformation.rs"
+
+[[bin]]
+name = "channel"
+path = "src/channel.rs"
+
+[[bin]]
+name = "curry"
+path = "src/curry.rs"
+
 [[bin]] 
 name = "file_size_formatter"
 path = "src/file_size_formatter.rs"
 
 [[bin]] 
-name = "full_name"
-path = "src/full_name.rs"
+name = "mini_tokio"
+path = "src/mini_tokio.rs"
 
-[[bin]] 
-name = "read_files"
-path = "src/read_files.rs"
+[[bin]]
+name = "recur_seq_gen_macro"
+path = "src/recur_seq_gen_macro.rs"
+
+[[bin]]
+name = "spin_lock"
+path = "src/spin_lock.rs"
+
+[[bin]]
+name = "string_slice"
+path = "src/string_slice.rs"
+
+# [[bin]] 
+# name = "read_files"
+# path = "src/read_files.rs"
 
 [[bin]] 
 name = "trait_bounds"
 path = "src/trait_bounds.rs"
 
-[[bin]] 
-name = "iterator"
-path = "src/iterator.rs"
-
-[[bin]] 
-name = "group_iterator"
-path = "src/group_iterator.rs"
-
-[[bin]] 
-name = "person"
-path = "src/person.rs"
+# [[bin]] 
+# name = "person"
+# path = "src/person.rs"
 
 [[bin]] 
 name = "user"
 path = "src/user.rs"
-
-[[bin]] 
-name = "module_visibility"
-path = "src/module_visibility.rs"
-
-[[bin]] 
-name = "modules"
-path = "src/modules.rs"
-
-[[bin]] 
-name = "result_type"
-path = "src/result_type.rs"
-
-[[bin]]
-name = "string"
-path = "src/string.rs"
 
 [[bin]]
 name = "vector"
@@ -61,14 +76,6 @@ path = "src/vector.rs"
 [[bin]]
 name = "vector_elements"
 path = "src/vector_elements.rs"
-
-[[bin]]
-name = "shape"
-path = "src/shape.rs"
-
-[[bin]]
-name = "string_slice"
-path = "src/string_slice.rs"
 
 [[bin]]
 name = "word_count"
@@ -83,18 +90,6 @@ name = "threads"
 path = "src/threads.rs"
 
 [[bin]]
-name = "messaging"
-path = "src/messaging.rs"
-
-[[bin]]
-name = "messaging2"
-path = "src/messaging2.rs"
-
-[[bin]]
-name = "messaging3"
-path = "src/messaging3.rs"
-
-[[bin]]
 name = "dining_philosophers"
 path = "src/dining_philosophers.rs"
 
@@ -105,11 +100,3 @@ path = "src/rc_count.rs"
 [[bin]]
 name = "threads3"
 path = "src/threads3.rs"
-
-[[bin]]
-name = "curry"
-path = "src/curry.rs"
-
-[[bin]]
-name = "fib_macro"
-path = "src/fib_macro.rs"

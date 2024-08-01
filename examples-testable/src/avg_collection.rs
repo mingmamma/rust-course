@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 pub struct AverageCollection {
     inner_vec: Vec<i32>,
     avg: f64,
