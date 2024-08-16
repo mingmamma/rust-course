@@ -1,0 +1,11 @@
+[package]
+name = "example-use-of-heapsize"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+heapsize = { path = "../heapsize" }
+
+[[bin]]
+name = "example-use-of-heapsize"
+path = "main.rs"

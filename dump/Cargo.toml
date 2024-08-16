@@ -1,0 +1,8 @@
+[package]
+name = "dump"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+proc-macro2 = { version = "1.0.86", features = ["span-locations"] }
+syn = { version = "2.0.72", features = ["full", "parsing"] }
